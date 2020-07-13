@@ -1,0 +1,66 @@
+
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Def -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.position}} </mat-cell>
+    </ng-container>
+    <!-- Nazwa Def -->
+    <ng-container matColumnDef="nazwa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <form>
+          <mat-form-field>
+            <mat-label>Nazwa zadania</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{row.nazwa}}">
+          </mat-form-field>
+        </form>
+      </mat-cell>
+        <!--<mat-cell *matCellDef="let row"> {{row.nazwa}} </mat-cell>-->
+    </ng-container>
+
+  <!-- Status Def -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-form-field appearance="fill">
+            <mat-label>Wybierz status</mat-label>
+            <mat-select [(value)]="row.idstatus">
+              <mat-option value="option1">{{row.status}}</mat-option>
+              <mat-option value="option2">W toku</mat-option>
+              <mat-option value="option3">Gotowe</mat-option>
+            </mat-select>
+          </mat-form-field>-->
+        </mat-cell>
+      </ng-container>
+      <!-- Opis Def -->
+      <ng-container matColumnDef="opis">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Opis </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.opis}} </mat-cell>
+      </ng-container>
+
+      <!-- Termin Def -->
+      <ng-container matColumnDef="termin">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Termin </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.termin}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="priorytet">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Priorytet </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-form-field appearance="fill">
+            <mat-label>Wybierz priorytet</mat-label>
+            <mat-select [(value)]="row.id">
+              <mat-option value="option1">Nizki</mat-option>
+              <mat-option value="option2">{{row.priorytet}}</mat-option>
+              <mat-option value="option3">Wysoki</mat-option>
+            </mat-select>
+          </mat-form-field>-->
+        </mat-cell>
+      </ng-container>
+
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['position','nazwa', 'status', 'opis','termin', 'priorytet']"></mat-row>
+</mat-table>
